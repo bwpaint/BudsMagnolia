@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" font-family="Lobster, cursive">
+  <!-- "Meat Market" lockup in the Bud's badge style:
+       arched baseline, italic lean, black shadow > cream rim > barn red face.
+       Font: Lobster (free on Google Fonts and Adobe Fonts, so Illustrator
+       renders it natively). For a fully outlined version, open in
+       Illustrator and Type > Create Outlines. -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap');
+  </style>
+  <defs>
+    <path id="arc" d="M 70,330 Q 550,140 1030,330" fill="none"/>
+  </defs>
+
+  <g transform="skewX(-7)" transform-origin="550 220">
+    <!-- layer 1: black drop shadow -->
+    <g transform="translate(10,14)">
+      <text font-size="148" fill="#16110D" stroke="#16110D" stroke-width="26"
+            stroke-linejoin="round" text-anchor="middle">
+        <textPath href="#arc" startOffset="50%">Meat Market</textPath>
+      </text>
+    </g>
+    <!-- layer 2: cream rim -->
+    <text font-size="148" fill="#EFE3CB" stroke="#EFE3CB" stroke-width="14"
+          stroke-linejoin="round" text-anchor="middle">
+      <textPath href="#arc" startOffset="50%">Meat Market</textPath>
+    </text>
+    <!-- layer 3: barn red face -->
+    <text font-size="148" fill="#9E2B25" text-anchor="middle">
+      <textPath href="#arc" startOffset="50%">Meat Market</textPath>
+    </text>
+  </g>
+</svg>
