@@ -1,32 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" font-family="Lobster, cursive">
-  <!-- "Meat Market" lockup in the Bud's badge style:
-       arched baseline, italic lean, black shadow > cream rim > barn red face.
-       Font: Lobster (free on Google Fonts and Adobe Fonts, so Illustrator
-       renders it natively). For a fully outlined version, open in
-       Illustrator and Type > Create Outlines. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 400">
+  <!-- "Meat Market" — final lockup in the Bud's badge style.
+       Font: Dancing Script Bold (free on Google Fonts / Adobe Fonts).
+       Straight baseline, italic lean, fattened stroke, badge layering:
+       black offset shadow > cream rim > barn red face.
+       Open in Illustrator and Type > Create Outlines for production paths. -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&amp;display=swap');
   </style>
-  <defs>
-    <path id="arc" d="M 70,330 Q 550,140 1030,330" fill="none"/>
-  </defs>
 
-  <g transform="skewX(-7)" transform-origin="550 220">
-    <!-- layer 1: black drop shadow -->
-    <g transform="translate(10,14)">
-      <text font-size="148" fill="#16110D" stroke="#16110D" stroke-width="26"
-            stroke-linejoin="round" text-anchor="middle">
-        <textPath href="#arc" startOffset="50%">Meat Market</textPath>
-      </text>
+  <g transform="skewX(-6)" transform-origin="590 200" font-family="'Dancing Script', cursive" font-weight="700">
+    <!-- black drop shadow -->
+    <g transform="translate(9,13)">
+      <text x="590" y="255" font-size="185" text-anchor="middle"
+            fill="#16110D" stroke="#16110D" stroke-width="36" stroke-linejoin="round">Meat Market</text>
     </g>
-    <!-- layer 2: cream rim -->
-    <text font-size="148" fill="#EFE3CB" stroke="#EFE3CB" stroke-width="14"
-          stroke-linejoin="round" text-anchor="middle">
-      <textPath href="#arc" startOffset="50%">Meat Market</textPath>
-    </text>
-    <!-- layer 3: barn red face -->
-    <text font-size="148" fill="#9E2B25" text-anchor="middle">
-      <textPath href="#arc" startOffset="50%">Meat Market</textPath>
-    </text>
+    <!-- cream rim -->
+    <text x="590" y="255" font-size="185" text-anchor="middle"
+          fill="#EFE3CB" stroke="#EFE3CB" stroke-width="23" stroke-linejoin="round">Meat Market</text>
+    <!-- barn red face -->
+    <text x="590" y="255" font-size="185" text-anchor="middle"
+          fill="#9E2B25" stroke="#9E2B25" stroke-width="8" stroke-linejoin="round">Meat Market</text>
   </g>
 </svg>
