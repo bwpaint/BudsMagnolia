@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1000">
+  <!-- "Meat Market" heavy-script comparison: Birthstone / Courgette / Dancing Script.
+       Straight baseline, italic lean, fattened strokes + Bud's badge treatment. -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Birthstone&amp;family=Courgette&amp;family=Dancing+Script:wght@700&amp;display=swap');
+  </style>
+
+  <!-- ============ 1. BIRTHSTONE ============ -->
+  <text x="40" y="60" font-family="sans-serif" font-size="26" fill="#999">1 — Birthstone</text>
+  <g transform="skewX(-6)" transform-origin="640 200">
+    <g transform="translate(8,12)">
+      <text x="640" y="240" font-size="170" text-anchor="middle" font-family="Birthstone, cursive"
+            fill="#16110D" stroke="#16110D" stroke-width="34" stroke-linejoin="round">Meat Market</text>
+    </g>
+    <text x="640" y="240" font-size="170" text-anchor="middle" font-family="Birthstone, cursive"
+          fill="#EFE3CB" stroke="#EFE3CB" stroke-width="22" stroke-linejoin="round">Meat Market</text>
+    <text x="640" y="240" font-size="170" text-anchor="middle" font-family="Birthstone, cursive"
+          fill="#9E2B25" stroke="#9E2B25" stroke-width="9" stroke-linejoin="round">Meat Market</text>
+  </g>
+
+  <!-- ============ 2. COURGETTE ============ -->
+  <text x="40" y="400" font-family="sans-serif" font-size="26" fill="#999">2 — Courgette</text>
+  <g transform="skewX(-6)" transform-origin="640 540">
+    <g transform="translate(8,12)">
+      <text x="640" y="580" font-size="140" text-anchor="middle" font-family="Courgette, cursive"
+            fill="#16110D" stroke="#16110D" stroke-width="30" stroke-linejoin="round">Meat Market</text>
+    </g>
+    <text x="640" y="580" font-size="140" text-anchor="middle" font-family="Courgette, cursive"
+          fill="#EFE3CB" stroke="#EFE3CB" stroke-width="19" stroke-linejoin="round">Meat Market</text>
+    <text x="640" y="580" font-size="140" text-anchor="middle" font-family="Courgette, cursive"
+          fill="#9E2B25" stroke="#9E2B25" stroke-width="7" stroke-linejoin="round">Meat Market</text>
+  </g>
+
+  <!-- ============ 3. DANCING SCRIPT (bold 700) ============ -->
+  <text x="40" y="740" font-family="sans-serif" font-size="26" fill="#999">3 — Dancing Script</text>
+  <g transform="skewX(-6)" transform-origin="640 880">
+    <g transform="translate(8,12)">
+      <text x="640" y="920" font-size="150" text-anchor="middle" font-family="'Dancing Script', cursive" font-weight="700"
+            fill="#16110D" stroke="#16110D" stroke-width="30" stroke-linejoin="round">Meat Market</text>
+    </g>
+    <text x="640" y="920" font-size="150" text-anchor="middle" font-family="'Dancing Script', cursive" font-weight="700"
+          fill="#EFE3CB" stroke="#EFE3CB" stroke-width="19" stroke-linejoin="round">Meat Market</text>
+    <text x="640" y="920" font-size="150" text-anchor="middle" font-family="'Dancing Script', cursive" font-weight="700"
+          fill="#9E2B25" stroke="#9E2B25" stroke-width="7" stroke-linejoin="round">Meat Market</text>
+  </g>
+</svg>
