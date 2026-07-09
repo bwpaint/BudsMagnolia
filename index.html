@@ -249,6 +249,16 @@
   .counter-wrap{position:relative}
   .counter-track{display:flex;align-items:center;gap:28px;padding:0 6vw;height:100dvh;width:max-content}
   .counter-intro{min-width:34vw;max-width:480px}
+  /* script sign graphics above section headlines */
+  .mm-graphic{
+    display:block;width:66%;height:auto;margin-bottom:16px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));
+  }
+  .sec-graphic{
+    display:block;width:min(66%,340px);height:auto;margin-bottom:18px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));
+  }
+
   /* small kicker labels in the marquee's voice */
   .kicker{
     font-family:'Barlow Condensed',sans-serif;font-weight:700;
@@ -457,7 +467,7 @@
 <section class="counter-wrap" id="counter">
   <div class="counter-track" id="counterTrack">
     <div class="counter-intro">
-      <div class="kicker">Meat Market</div>
+      <img class="mm-graphic" src="meat-market.webp" alt="Meat Market">
       <h2>The Meat <em style="font-style:normal;color:var(--red-hot)">Counter</em></h2>
       <p>American-raised beef, pork and chicken, cut fresh behind the glass. If you don't see it, ask &mdash; we'll cut it to order.</p>
     </div>
@@ -481,14 +491,14 @@
       <div class="body"><span class="idx">03</span><h3>Pork</h3><p>Chops, ribs, and sausage made in-house.</p></div>
     </div>
     <div class="cut-card">
-      <img class="ph" alt="Fresh chicken wings on dark board"
-           src="https://images.unsplash.com/photo-1588168333986-5078d3ae3976?w=900&q=70&auto=format&fit=crop"
+      <img class="ph" alt="Whole fresh chicken on a butcher board"
+           src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=900&q=70&auto=format&fit=crop"
            onerror="this.onerror=null;this.src='https://picsum.photos/seed/buds-poultry/900/1100'">
       <div class="body"><span class="idx">04</span><h3>Poultry</h3><p>Whole birds, wings and more, always fresh.</p></div>
     </div>
     <div class="cut-card">
-      <img class="ph" alt="Seared steak in a cast iron skillet with rosemary"
-           src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=900&q=70&auto=format&fit=crop"
+      <img class="ph" alt="Whitetail buck standing in golden light"
+           src="https://images.unsplash.com/photo-1484406566174-9da000fda645?w=900&q=70&auto=format&fit=crop"
            onerror="this.onerror=null;this.src='https://picsum.photos/seed/buds-exotic/900/1100'">
       <div class="body"><span class="idx">05</span><h3>Exotics</h3><p>Deer, elk, buffalo, duck and veal in season.</p></div>
     </div>
@@ -498,7 +508,7 @@
 <section class="bbq section-pad" id="bbq">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Barbecue To Go</div>
+      <img class="sec-graphic" src="barbecue-to-go.webp" alt="Barbecue To Go">
       <h2>Low &amp; Slow, <em>Out Back</em></h2>
       <p>The smoker runs all night so the plates come out right. Real Texas barbecue &mdash; no shortcuts, no warming trays.</p>
     </div>
@@ -519,6 +529,7 @@
 <section class="section-pad" id="order">
   <div class="wrap">
     <div class="sec-head">
+      <img class="sec-graphic" src="orders-to-go.webp" alt="Orders To Go">
       <h2>Order Up, <em>Magnolia</em></h2>
       <p>However you like to order, we've got you &mdash; and it's wrapped and ready when you are.</p>
     </div>
