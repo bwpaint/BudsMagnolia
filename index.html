@@ -74,6 +74,23 @@
   .nav-links{display:flex;gap:34px;list-style:none}
   .nav-links a{text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.92rem;color:var(--cream-dim);transition:color .15s}
   .nav-links a:hover{color:var(--red-hot)}
+  /* Order dropdown */
+  .nav-drop{position:relative}
+  .nav-drop > a .caret{font-size:.7em;opacity:.7;margin-left:4px}
+  .nav-drop .drop{
+    position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    padding-top:16px;display:none;min-width:200px;z-index:65;
+  }
+  .nav-drop:hover .drop,.nav-drop:focus-within .drop{display:block}
+  .drop-inner{
+    background:rgba(18,14,11,.97);backdrop-filter:blur(12px);
+    border:1px solid rgba(180,155,114,.35);border-radius:10px;
+    padding:8px;box-shadow:0 16px 34px rgba(0,0,0,.55);
+  }
+  .drop-inner a{
+    display:block;padding:11px 16px;border-radius:7px;white-space:nowrap;
+  }
+  .drop-inner a:hover{background:rgba(165,35,29,.28);color:var(--cream)}
   .btn{
     display:inline-block;text-decoration:none;font-family:'Barlow Condensed',sans-serif;
     font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:1rem;
@@ -363,7 +380,15 @@
     <ul class="nav-links">
       <li><a href="#counter">The Counter</a></li>
       <li><a href="#bbq">BBQ</a></li>
-      <li><a href="#order">Order</a></li>
+      <li class="nav-drop">
+        <a href="#order">Order<span class="caret">&#9662;</span></a>
+        <div class="drop"><div class="drop-inner">
+          <a href="https://www.doordash.com/" target="_blank" rel="noopener">Order DoorDash</a>
+          <a href="https://www.ubereats.com/" target="_blank" rel="noopener">Order UberEats</a>
+          <a href="#order">Order from Bud's</a>
+          <a href="#order">Order Information</a>
+        </div></div>
+      </li>
       <li><a href="#catering">Catering</a></li>
       <li><a href="#visit">Visit</a></li>
     </ul>
@@ -376,7 +401,10 @@
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
   <a href="#counter">The Counter</a>
   <a href="#bbq">BBQ</a>
-  <a href="#order">Order</a>
+  <a href="https://www.doordash.com/" target="_blank" rel="noopener">Order DoorDash</a>
+  <a href="https://www.ubereats.com/" target="_blank" rel="noopener">Order UberEats</a>
+  <a href="#order">Order from Bud's</a>
+  <a href="#order">Order Information</a>
   <a href="#catering">Catering</a>
   <a href="#visit">Visit</a>
 </nav>
@@ -599,11 +627,14 @@
         menuBtn.classList.remove('open');
         menuBtn.setAttribute('aria-expanded', 'false');
         navSolid();
-        const target = document.querySelector(a.getAttribute('href'));
-        if(target){
-          e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.scrollY - 74;
-          window.scrollTo({top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth'});
+        const href = a.getAttribute('href');
+        if(href && href.charAt(0) === '#'){
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            const y = target.getBoundingClientRect().top + window.scrollY - 74;
+            window.scrollTo({top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth'});
+          }
         }
       });
     });
