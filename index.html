@@ -86,7 +86,39 @@
   .btn-line{border:1.5px solid var(--tan);color:var(--cream)}
   .btn-line:hover{background:rgba(180,155,114,.12)}
   .nav .btn{padding:10px 22px;font-size:.88rem}
-  @media(max-width:960px){.nav-links{display:none}}
+
+  /* hamburger (mobile only) */
+  .menu-btn{
+    display:none;background:none;border:1.5px solid var(--tan);border-radius:10px;
+    width:46px;height:42px;cursor:pointer;padding:10px 11px;
+    flex-direction:column;justify-content:space-between;
+  }
+  .menu-btn span{display:block;height:2px;width:100%;background:var(--cream);border-radius:2px;transition:transform .25s,opacity .2s}
+  .menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+  .menu-btn.open span:nth-child(2){opacity:0}
+  .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+  /* mobile dropdown menu */
+  .mobile-menu{
+    position:fixed;top:74px;left:0;right:0;z-index:59;
+    background:rgba(18,14,11,.97);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(180,155,114,.3);
+    display:none;flex-direction:column;padding:10px 24px 18px;
+  }
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{
+    text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.14em;font-size:1.1rem;color:var(--cream);
+    padding:15px 4px;border-bottom:1px solid rgba(180,155,114,.15);
+  }
+  .mobile-menu a:last-child{border-bottom:none}
+
+  @media(max-width:960px){
+    .nav-links{display:none}
+    .nav-brand{display:none}          /* no logo or wordmark on mobile */
+    .menu-btn{display:flex}
+    .nav{justify-content:space-between}  /* call button left, hamburger right */
+  }
 
   /* ---------- HANGING ORDER SIGNS — the logo's own sign, extracted ---------- */
   .sign-rail{
@@ -334,8 +366,18 @@
       <li><a href="#visit">Visit</a></li>
     </ul>
     <a class="btn btn-red" href="tel:+12812520002">Call (281) 252-0002</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#counter">The Counter</a>
+  <a href="#bbq">BBQ</a>
+  <a href="#order">Order</a>
+  <a href="#catering">Catering</a>
+  <a href="#visit">Visit</a>
+</nav>
 
 <section class="hero" id="top">
   <div class="hero-bigtype"><span>MAGNOLIA<br>TEXAS</span></div>
@@ -533,7 +575,29 @@
 
   /* nav solid on scroll */
   const header = document.getElementById('siteHeader');
-  addEventListener('scroll', () => header.classList.toggle('solid', scrollY > 40), {passive:true});
+  const navSolid = () => header.classList.toggle('solid',
+    scrollY > 40 || document.getElementById('mobileMenu').classList.contains('open'));
+  addEventListener('scroll', navSolid, {passive:true});
+
+  /* mobile hamburger menu */
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if(menuBtn && mobileMenu){
+    menuBtn.addEventListener('click', function(){
+      const open = mobileMenu.classList.toggle('open');
+      menuBtn.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+      navSolid();   /* solid backdrop while the menu is out */
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mobileMenu.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        navSolid();
+      });
+    });
+  }
 
   /* ============================================================
      1. LOGO — static. The badge holds still; the smoke does the work.
