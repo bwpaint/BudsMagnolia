@@ -221,6 +221,8 @@
 
   /* ---------- SECTION SHARED ---------- */
   section{position:relative;z-index:2}
+  /* anchor targets land clear of the fixed nav */
+  #counter,#bbq,#order,#catering,#visit{scroll-margin-top:78px}
   .section-pad{padding:120px 0}
   .sec-head h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:18px}
   .sec-head h2 em{font-style:normal;color:var(--red-hot)}
@@ -590,11 +592,19 @@
       navSolid();   /* solid backdrop while the menu is out */
     });
     mobileMenu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
+      a.addEventListener('click', function(e){
+        /* close the menu, then drive the scroll ourselves so every link
+           lands exactly on its section, clear of the fixed nav */
         mobileMenu.classList.remove('open');
         menuBtn.classList.remove('open');
         menuBtn.setAttribute('aria-expanded', 'false');
         navSolid();
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 74;
+          window.scrollTo({top: Math.max(0, y), behavior: reduce ? 'auto' : 'smooth'});
+        }
       });
     });
   }
