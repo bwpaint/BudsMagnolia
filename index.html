@@ -314,18 +314,21 @@
   .bbq-note p{font-size:1rem;color:var(--cream)}
 
   /* ---------- ORDER ---------- */
-  /* ---------- WAYS TO ORDER ---------- */
-  .order-ways{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
-  .way{
-    display:block;text-decoration:none;
-    background:linear-gradient(180deg,rgba(165,35,29,.16),rgba(165,35,29,.05));
-    border:1px solid rgba(165,35,29,.5);border-radius:var(--radius);
-    padding:30px 28px;transition:border-color .2s,background .2s;
-  }
-  .way:hover{border-color:var(--red-hot);background:linear-gradient(180deg,rgba(165,35,29,.24),rgba(165,35,29,.08))}
-  .way h3{font-size:1.25rem;margin-bottom:8px;color:var(--cream)}
-  .way p{color:var(--cream-dim);font-size:.98rem}
-  @media(max-width:900px){.order-ways{grid-template-columns:1fr}}
+
+
+  /* ---------- ORDER BADGES — styled after the lower half of the logo ---------- */
+  .order-badges{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px}
+  .badge{display:block;text-decoration:none;transition:transform .25s ease, filter .25s ease;
+    filter:drop-shadow(0 16px 22px rgba(0,0,0,.55))}
+  .badge svg{display:block;width:100%;height:auto;overflow:visible}
+  .badge:hover{transform:translateY(-6px) rotate(-1deg);
+    filter:drop-shadow(0 22px 26px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(201,58,46,.45))}
+  .b-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:.32em;fill:#C9B896}
+  .b-star{fill:#C93A2E;font-size:13px;letter-spacing:0}
+  .b-name{font-family:'Alfa Slab One',serif;fill:#EFE3CB;paint-order:stroke;stroke:#000;stroke-width:6px;stroke-linejoin:round}
+  .b-red{font-family:'Alfa Slab One',serif;fill:#C93A2E;paint-order:stroke;stroke:#000;stroke-width:6px;stroke-linejoin:round}
+  .b-rib{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.12em;fill:#2a1d12}
+  @media(max-width:900px){.order-badges{grid-template-columns:repeat(2,1fr);gap:18px 14px}}
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
   .step{
@@ -541,18 +544,98 @@
       <p>However you like to order, we've got you &mdash; and it's wrapped and ready when you are.</p>
     </div>
     <!-- ways to order -->
-    <div class="order-ways">
-      <a class="way" href="https://www.doordash.com/" target="_blank" rel="noopener">
-        <h3>DoorDash</h3>
-        <p>Plates and BBQ delivered hot to your door.</p>
+    <div class="order-badges">
+      <a class="badge" href="https://www.doordash.com/" target="_blank" rel="noopener" aria-label="Order On Doordash Delivery">
+        <svg viewBox="0 0 300 350" role="img" aria-hidden="true">
+          <path d="M28,10 H272 A18,18 0 0 0 290,28 V262 A18,18 0 0 0 272,280 H28 A18,18 0 0 0 10,262 V28 A18,18 0 0 0 28,10 Z" fill="#A5231D"/>
+          <path d="M34,16 H266 A18,18 0 0 0 284,34 V256 A18,18 0 0 0 266,274 H34 A18,18 0 0 0 16,256 V34 A18,18 0 0 0 34,16 Z" fill="#111"/>
+          <path d="M37,19 H263 A18,18 0 0 0 281,37 V253 A18,18 0 0 0 263,271 H37 A18,18 0 0 0 19,253 V37 A18,18 0 0 0 37,19 Z" fill="url(#bgPlate)"/>
+          <path d="M44,26 H256 A18,18 0 0 0 274,44 V246 A18,18 0 0 0 256,264 H44 A18,18 0 0 0 26,246 V44 A18,18 0 0 0 44,26 Z" fill="none" stroke="#EFE3CB" stroke-opacity=".55" stroke-width="1.5"/>
+          <text x="150" y="64" text-anchor="middle" class="b-label"><tspan class="b-star">&#9733;</tspan> ORDER ON <tspan class="b-star">&#9733;</tspan></text>
+          <g filter="url(#grunge)">
+            <text x="150" y="152" text-anchor="middle" class="b-name" style="font-size:34px">DOORDASH</text>
+            <text x="150" y="190" text-anchor="middle" class="b-red" style="font-size:28px">DELIVERY</text>
+          </g>
+          <!-- ribbon -->
+          <path d="M4,262 L30,256 L30,292 L4,298 L14,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M296,262 L270,256 L270,292 L296,298 L286,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M24,250 Q150,232 276,250 L276,288 Q150,270 24,288 Z" fill="url(#bgRibbon)" stroke="#1a120c" stroke-width="2.5"/>
+          <path id="rib-DOO" d="M34,273 Q150,256 266,273" fill="none"/>
+          <text class="b-rib"><textPath href="#rib-DOO" startOffset="50%" text-anchor="middle">HOT TO YOUR DOOR</textPath></text>
+          <!-- medallion -->
+          <circle cx="150" cy="312" r="24" fill="#111" stroke="#EFE3CB" stroke-width="2"/>
+          <circle cx="150" cy="312" r="19" fill="none" stroke="#A5231D" stroke-width="2"/>
+          <use href="#tools" transform="translate(150 313) scale(.85)"/>
+        </svg>
       </a>
-      <a class="way" href="https://www.ubereats.com/" target="_blank" rel="noopener">
-        <h3>Uber Eats</h3>
-        <p>Delivery on your schedule, straight off the pit.</p>
+      <a class="badge" href="https://www.ubereats.com/" target="_blank" rel="noopener" aria-label="Order On Uber Eats Delivery">
+        <svg viewBox="0 0 300 350" role="img" aria-hidden="true">
+          <path d="M28,10 H272 A18,18 0 0 0 290,28 V262 A18,18 0 0 0 272,280 H28 A18,18 0 0 0 10,262 V28 A18,18 0 0 0 28,10 Z" fill="#A5231D"/>
+          <path d="M34,16 H266 A18,18 0 0 0 284,34 V256 A18,18 0 0 0 266,274 H34 A18,18 0 0 0 16,256 V34 A18,18 0 0 0 34,16 Z" fill="#111"/>
+          <path d="M37,19 H263 A18,18 0 0 0 281,37 V253 A18,18 0 0 0 263,271 H37 A18,18 0 0 0 19,253 V37 A18,18 0 0 0 37,19 Z" fill="url(#bgPlate)"/>
+          <path d="M44,26 H256 A18,18 0 0 0 274,44 V246 A18,18 0 0 0 256,264 H44 A18,18 0 0 0 26,246 V44 A18,18 0 0 0 44,26 Z" fill="none" stroke="#EFE3CB" stroke-opacity=".55" stroke-width="1.5"/>
+          <text x="150" y="64" text-anchor="middle" class="b-label"><tspan class="b-star">&#9733;</tspan> ORDER ON <tspan class="b-star">&#9733;</tspan></text>
+          <g filter="url(#grunge)">
+            <text x="150" y="152" text-anchor="middle" class="b-name" style="font-size:35px">UBER EATS</text>
+            <text x="150" y="190" text-anchor="middle" class="b-red" style="font-size:28px">DELIVERY</text>
+          </g>
+          <!-- ribbon -->
+          <path d="M4,262 L30,256 L30,292 L4,298 L14,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M296,262 L270,256 L270,292 L296,298 L286,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M24,250 Q150,232 276,250 L276,288 Q150,270 24,288 Z" fill="url(#bgRibbon)" stroke="#1a120c" stroke-width="2.5"/>
+          <path id="rib-UBE" d="M34,273 Q150,256 266,273" fill="none"/>
+          <text class="b-rib"><textPath href="#rib-UBE" startOffset="50%" text-anchor="middle">STRAIGHT OFF THE PIT</textPath></text>
+          <!-- medallion -->
+          <circle cx="150" cy="312" r="24" fill="#111" stroke="#EFE3CB" stroke-width="2"/>
+          <circle cx="150" cy="312" r="19" fill="none" stroke="#A5231D" stroke-width="2"/>
+          <use href="#tools" transform="translate(150 313) scale(.85)"/>
+        </svg>
       </a>
-      <a class="way" href="#order">
-        <h3>Order from Bud's</h3>
-        <p>BBQ to go or anything in the meat market &mdash; order right here on the site, pick it up at the counter.</p>
+      <a class="badge" href="https://buds-house-of-meat-magno-magnolia.cloveronline.com/all" target="_blank" rel="noopener" aria-label="Order Meat Market Fresh Cuts">
+        <svg viewBox="0 0 300 350" role="img" aria-hidden="true">
+          <path d="M28,10 H272 A18,18 0 0 0 290,28 V262 A18,18 0 0 0 272,280 H28 A18,18 0 0 0 10,262 V28 A18,18 0 0 0 28,10 Z" fill="#A5231D"/>
+          <path d="M34,16 H266 A18,18 0 0 0 284,34 V256 A18,18 0 0 0 266,274 H34 A18,18 0 0 0 16,256 V34 A18,18 0 0 0 34,16 Z" fill="#111"/>
+          <path d="M37,19 H263 A18,18 0 0 0 281,37 V253 A18,18 0 0 0 263,271 H37 A18,18 0 0 0 19,253 V37 A18,18 0 0 0 37,19 Z" fill="url(#bgPlate)"/>
+          <path d="M44,26 H256 A18,18 0 0 0 274,44 V246 A18,18 0 0 0 256,264 H44 A18,18 0 0 0 26,246 V44 A18,18 0 0 0 44,26 Z" fill="none" stroke="#EFE3CB" stroke-opacity=".55" stroke-width="1.5"/>
+          <text x="150" y="64" text-anchor="middle" class="b-label"><tspan class="b-star">&#9733;</tspan> ORDER <tspan class="b-star">&#9733;</tspan></text>
+          <g filter="url(#grunge)">
+            <text x="150" y="152" text-anchor="middle" class="b-name" style="font-size:27px">MEAT MARKET</text>
+            <text x="150" y="190" text-anchor="middle" class="b-red" style="font-size:28px">FRESH CUTS</text>
+          </g>
+          <!-- ribbon -->
+          <path d="M4,262 L30,256 L30,292 L4,298 L14,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M296,262 L270,256 L270,292 L296,298 L286,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M24,250 Q150,232 276,250 L276,288 Q150,270 24,288 Z" fill="url(#bgRibbon)" stroke="#1a120c" stroke-width="2.5"/>
+          <path id="rib-MEA" d="M34,273 Q150,256 266,273" fill="none"/>
+          <text class="b-rib"><textPath href="#rib-MEA" startOffset="50%" text-anchor="middle">CUT TO ORDER · PICK UP</textPath></text>
+          <!-- medallion -->
+          <circle cx="150" cy="312" r="24" fill="#111" stroke="#EFE3CB" stroke-width="2"/>
+          <circle cx="150" cy="312" r="19" fill="none" stroke="#A5231D" stroke-width="2"/>
+          <use href="#tools" transform="translate(150 313) scale(.85)"/>
+        </svg>
+      </a>
+      <a class="badge" href="https://buds-house-of-meat-magno-magnolia.cloveronline.com/all" target="_blank" rel="noopener" aria-label="Order Bbq To-Go">
+        <svg viewBox="0 0 300 350" role="img" aria-hidden="true">
+          <path d="M28,10 H272 A18,18 0 0 0 290,28 V262 A18,18 0 0 0 272,280 H28 A18,18 0 0 0 10,262 V28 A18,18 0 0 0 28,10 Z" fill="#A5231D"/>
+          <path d="M34,16 H266 A18,18 0 0 0 284,34 V256 A18,18 0 0 0 266,274 H34 A18,18 0 0 0 16,256 V34 A18,18 0 0 0 34,16 Z" fill="#111"/>
+          <path d="M37,19 H263 A18,18 0 0 0 281,37 V253 A18,18 0 0 0 263,271 H37 A18,18 0 0 0 19,253 V37 A18,18 0 0 0 37,19 Z" fill="url(#bgPlate)"/>
+          <path d="M44,26 H256 A18,18 0 0 0 274,44 V246 A18,18 0 0 0 256,264 H44 A18,18 0 0 0 26,246 V44 A18,18 0 0 0 44,26 Z" fill="none" stroke="#EFE3CB" stroke-opacity=".55" stroke-width="1.5"/>
+          <text x="150" y="64" text-anchor="middle" class="b-label"><tspan class="b-star">&#9733;</tspan> ORDER <tspan class="b-star">&#9733;</tspan></text>
+          <g filter="url(#grunge)">
+            <text x="150" y="160" text-anchor="middle" class="b-name" style="font-size:60px">BBQ</text>
+            <text x="150" y="204" text-anchor="middle" class="b-red" style="font-size:34px">TO-GO</text>
+          </g>
+          <!-- ribbon -->
+          <path d="M4,262 L30,256 L30,292 L4,298 L14,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M296,262 L270,256 L270,292 L296,298 L286,280 Z" fill="#8f7346" stroke="#1a120c" stroke-width="2"/>
+          <path d="M24,250 Q150,232 276,250 L276,288 Q150,270 24,288 Z" fill="url(#bgRibbon)" stroke="#1a120c" stroke-width="2.5"/>
+          <path id="rib-BBQ" d="M34,273 Q150,256 266,273" fill="none"/>
+          <text class="b-rib"><textPath href="#rib-BBQ" startOffset="50%" text-anchor="middle">LOW &amp; SLOW · READY TO GO</textPath></text>
+          <!-- medallion -->
+          <circle cx="150" cy="312" r="24" fill="#111" stroke="#EFE3CB" stroke-width="2"/>
+          <circle cx="150" cy="312" r="19" fill="none" stroke="#A5231D" stroke-width="2"/>
+          <use href="#tools" transform="translate(150 313) scale(.85)"/>
+        </svg>
       </a>
     </div>
     <div class="steps">
@@ -878,5 +961,33 @@
   });
 })();
 </script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="bgPlate" cx="50%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#2a201a"/><stop offset="1" stop-color="#0e0b09"/>
+    </radialGradient>
+    <linearGradient id="bgRibbon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D9BF8F"/><stop offset="1" stop-color="#B4955F"/>
+    </linearGradient>
+    <filter id="grunge" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -9 6.6" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+    <g id="tools">
+      <!-- crossed cleaver + fork, like the logo -->
+      <g transform="rotate(-38)">
+        <rect x="-2.2" y="-2" width="4.4" height="17" rx="1.5" fill="#6b4a2b"/>
+        <path d="M-7,-18 H7 V-2 H-7 Z" fill="#cfd2d4" stroke="#111" stroke-width="1"/>
+        <circle cx="4" cy="-14.5" r="1.5" fill="#111"/>
+      </g>
+      <g transform="rotate(38)">
+        <rect x="-2" y="-1" width="4" height="16" rx="1.5" fill="#6b4a2b"/>
+        <path d="M-5,-18 V-6 Q0,0 5,-6 V-18 M0,-18 V-3" fill="none" stroke="#cfd2d4" stroke-width="2.2" stroke-linecap="round"/>
+      </g>
+    </g>
+  </defs>
+</svg>
 </body>
 </html>
