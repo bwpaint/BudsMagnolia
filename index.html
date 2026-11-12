@@ -663,7 +663,7 @@
      ============================================================ */
   const logoImg = document.getElementById('heroLogoImg');
 
-  /* hanging signs: 3.5s after load they lower slowly from behind the
+  /* hanging signs: ~1.2s after load they lower slowly from behind the
      nav — already swaying on the way down, no snap, no bounce */
   const signs = document.querySelectorAll('.hang-sign');
   if(hasGsap && !reduce){
@@ -672,7 +672,7 @@
       gsap.to(s, {
         y: 0,
         duration: 2.6,
-        delay: 2 + i * 0.9,
+        delay: 1.2 + i * 0.54,   // was 2 + i*0.9 — cut 40%
         ease: 'power1.inOut',
         onComplete(){ gsap.set(s, {clearProps:'transform'}); }
       });
